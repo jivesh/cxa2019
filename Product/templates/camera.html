@@ -1,8 +1,11 @@
+<!DOCTYPE html>
+
 <video id="video" width="640" height="480" autoplay></video>
 <br/>
 <form action="/classify">
     <button id="snap">Take Photo</button>
 </form>
+<!-- <button id="snap" method="post">Take Photo</button> -->
 <canvas id="canvas" width="640" height="640"></canvas>
 
 <script type="text/javascript">
@@ -22,8 +25,20 @@
 
     var canvas = document.getElementById('canvas');
     var context = canvas.getContext('2d');
+    var link = document.createElement('a');
+    // link.innerHTML = 'download image';
 
+    // take a snap of the trash
     document.getElementById('snap').addEventListener('click', function() {
         context.drawImage(video, 0, 0, 640, 480);
+        // trigger the downloasd
+        link.click();
     });
+
+    // download the image
+    link.addEventListener('click', function() {
+        link.href = canvas.toDataURL("image/png");
+        link.download = "trash";
+    });
+    document.body.appendChild(link);
 </script>

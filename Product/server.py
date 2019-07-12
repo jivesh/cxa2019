@@ -31,16 +31,20 @@ def add_user():
     return render_template("products.html")
 
 # triggered after clicking the snap button in the camera page
-@app.route("/classify_page", methods=["POST"])
+@app.route("/classify", methods=["POST"])
 def classify():
-    # TODO: shift the image to specific folder
-    # TODO: run the deep learning model 
+    # TODO: check working on local server with flask
+    shutil.move("Users/ue/Downloads/trash.png", "Users/ue/Downloads/CXA2019/cxa2019/Product/static/images/target/trash.png")
+    # TODO: run the deep learning model
     # TODO: make prediction of the classification
+
     # TODO: play animation of the classification process
+
     # TODO: trigger reward system when mistakes were spotted
     # TODO: move the image to trash folder
     # TODO: display ending page
-    return render_template("")
+    # return render_template("")
+    return "Hey"
 
 
 
