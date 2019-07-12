@@ -1,6 +1,6 @@
 from keras.models import model_from_json
 import numpy as np
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 from keras.preprocessing.image import ImageDataGenerator, load_img, img_to_array, array_to_img
 from keras.layers import Conv2D, Flatten, MaxPooling2D, Dense
 from keras.models import Sequential

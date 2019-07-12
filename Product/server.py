@@ -36,19 +36,25 @@ def add_user():
 def classify():
     time.sleep(0.1)
     # TODO: check working on local server with flask
-    # TODO: run the deep learning model
-    # TODO: make prediction of the classification
-
+    # run the deep learning model and make prediction of the classification
+    os.system('python final_garbage.py')
     # TODO: play animation of the classification process
-
+    result = open("prediction.txt", "r")
+    for line in result:
+        result_str = line
+    final_url = result_str + ".html"
+    return render_template(final_url)
+    
+@app.route("/reward", methods=["GET"])
+def reward():
     # TODO: trigger reward system when mistakes were spotted
 
-    # move the image to trash folder
-    os.remove("demofile.txt")
-    random_number = random.randint(1,100001)
-    random_name = "/Users/ue/Downloads/CXA2019/cxa2019/Product/static/images/trash/trash" + str(random_number) + ".png"
-    shutil.move("/Users/ue/Downloads/CXA2019/cxa2019/Product/static/images/downloaded_images/trash.png",
-                random_name)
+    # # TODO: move the image to trash folder and update the counter
+    # # os.remove("demofile.txt")
+    # random_number = random.randint(1,100001)
+    # random_name = "/Users/ue/Downloads/CXA2019/cxa2019/Product/static/images/trash/trash" + str(random_number) + ".png"
+    # shutil.move("/Users/ue/Downloads/CXA2019/cxa2019/Product/static/images/downloaded_images/trash.png",
+    #             random_name)
     # TODO: display ending page
     # return render_template("")
     return "Hey"
