@@ -44,6 +44,7 @@ def classify():
     # TODO: trigger reward system when mistakes were spotted
 
     # move the image to trash folder
+    os.remove("demofile.txt")
     random_number = random.randint(1,100001)
     random_name = "/Users/ue/Downloads/CXA2019/cxa2019/Product/static/images/trash/trash" + str(random_number) + ".png"
     shutil.move("/Users/ue/Downloads/CXA2019/cxa2019/Product/static/images/downloaded_images/trash.png",

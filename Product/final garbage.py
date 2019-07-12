@@ -29,7 +29,7 @@ batch_size = 16
 labels = {0: 'cardboard', 1: 'glass', 2: 'metal', 3: 'paper', 4: 'plastic', 5: 'trash'}
 
 
-validation_generator = test_datagen.flow_from_directory('Input photo', target_size=(300, 300))
+validation_generator = test_datagen.flow_from_directory('static/images/downloaded_images', target_size=(300, 300))
 test_x, test_y= validation_generator.__getitem__(0)
 preds = model.predict(test_x)
 print('pred:%s' % (labels[np.argmax(preds[0])]))
