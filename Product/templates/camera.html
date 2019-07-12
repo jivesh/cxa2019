@@ -1,13 +1,27 @@
 <!DOCTYPE html>
 
-<video id="video" width="640" height="480" autoplay></video>
+<video id="video" width=1640px height=720px autoplay></video>
 <br/>
 <form action="/classify">
     <button id="snap">Take Photo</button>
 </form>
 <!-- <button id="snap" method="post">Take Photo</button> -->
 <canvas id="canvas" width="640" height="640"></canvas>
-
+<style>
+    .video {
+        margin: 2em auto;
+    }
+    
+    .form {
+        width: 100%;
+    }
+    
+    #snap {
+        width: 300px;
+        height: 90px;
+        align-items: center;
+    }
+</style>
 <script type="text/javascript">
     var video = document.getElementById('video');
 
