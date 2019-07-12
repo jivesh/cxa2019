@@ -10,34 +10,21 @@ app = Flask("__name__")
 
 @app.route("/")
 def root():
-    con = open_DB("user.db")
-    cursor = con.execute("SELECT * FROM User")
-    rows = cursor.fetchall()
-    con.close()
-    return render_template("main_menu.html")
+    return render_template("camera.html")
 
-@app.route("/addLocation", methods=["POST"])
-def add_location():
-    image_file_name = ""
-    con = open_DB('catalogue.db')
-    if "image" in request.files:
-        image_file = request.files["image"]
-        image_file_name = image_file.filename
-        image_file.save("static/images/"+image_file_name)
+@app.route("/addUser", methods=["POST"])
+def add_user():
+    # the function is to create a new user
+    con = open_DB('user.db')
     try:
-        a, b, d = request.form['name'], request.form['description'], image_file_name
-        con.execute("INSERT INTO Locations(Name, Description, Image) VALUES(?, ?, ?)", (a, b, d))
+        user_name = request.form['name']
+        con.execute("INSERT INTO User (Name, Points) VALUES(?, ?)", (user_name, 0))
         con.commit()
     except:
         print("Database error")
     con.close()
-    con = open_DB('catalogue.db')
-    # cursor = con.execute("SELECT Name, Image FROM Products")
-    cursor = con.execute("SELECT * FROM Locations")
-    rows = cursor.fetchall()  # return a list of dictionary object
-    con.close()
-    return render_template("products.html", products=rows)
-    # return render_template("products.html")
+    # TODO: supposed to render a certain page 
+    return render_template("products.html")
 
 if __name__ == "__main__":
     app.run()
