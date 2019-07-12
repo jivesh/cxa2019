@@ -37,7 +37,7 @@ def classify():
     time.sleep(0.1)
     # TODO: check working on local server with flask
     # run the deep learning model and make prediction of the classification
-    os.system('python final_garbage.py')
+    os.system('python3 final_garbage.py')
     # TODO: play animation of the classification process
     result = open("prediction.txt", "r")
     for line in result:
