@@ -14,14 +14,21 @@
 		background-color:#DEE7E1;
 		font-family: Abel;
 	}
+	.x {
+		font-family: Abel;
+		font-size: 40px;
+		position: absolute;
+		top: 50%;
+	}
+	
 	
 	</style>
 </head>
 
 <body>
-    <h1>Thank you! Your current score is {{ points }}</h1>
+    <h1 class="fanks">Thank you! Your current score is {{ points }}</h1>
     <form action="/" method="GET">
-        <button type="submit">Log in</button>
+        <button type="submit" class="x">Exit</button>
     </form>
 </body>
 
