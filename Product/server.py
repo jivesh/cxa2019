@@ -15,13 +15,11 @@ def open_DB(db):
 app = Flask("__name__")
 
 
-# TODO: improve on the UI design
 @app.route("/")
 def root():
     return render_template("log_in.html")
 
 
-# TODO: improve on the UI design
 @app.route("/main_page", methods=["POST"])
 def main_page():
     con = open_DB('user.db')
@@ -47,6 +45,10 @@ def main_page():
 def throw_rubbish():
     return render_template("camera.html")
 
+
+@app.route("/process", methods=["GET"])
+def process():
+    return render_template("loading.html")
 
 # TODO: add processing anima for engagement
 # triggered after clicking the snap button in the camera page
