@@ -2,19 +2,44 @@
 <html>
 
 <head>
+	<style>
+	@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i&display=swap');
+	@import url("https://fonts.googleapis.com/css?family=Tangerine&display=swap");
+	@import url('https://fonts.googleapis.com/css?family=Patrick+Hand&display=swap');
+	</style>
     <meta charset="utf-8">
     <title>Main_page</title>
     </script>
+	<style type="text/css">
+		.throw {
+			height: 40px;
+			width: 300px;
+			position:absolute;
+			left:40%;
+			top:50%;
+			font-family: 'Roboto', thin;
+			font-size: 20px;
+			text-color: #F5F8F6;
+			background-color: #788585;
+		}
+		.points {
+			position:absolute;
+			top: 25%;
+			left: 38%;
+			font-family: 'Tangerine';
+			font-size: 69px;
+		}
+	</style>
 
 </head>
 
-<body>
-    <div>
-        <a>{{ point }}</a>
+<body style="background-color:#DEE7E1">
+    <div class="points">
+        You have <a>{{ point }}</a> points!
     </div>
     <form action="/throw_rubbish" method="POST">
         <div>
-            <button type="submit">Throw a rubbish</button>
+            <button type="submit" class="throw">Discard rubbish</button>
         </div>
     </form>
 </body>
