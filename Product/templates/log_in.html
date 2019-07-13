@@ -3,7 +3,7 @@
 
 <head>
 	<style>
-	@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i&display=swap');
+	@import url('https://fonts.googleapis.com/css?family=Abel&display=swap');
 	@import url("https://fonts.googleapis.com/css?family=Tangerine&display=swap");
 	</style>
     <meta charset="utf-8">
@@ -13,12 +13,14 @@
 		.hello {
 			position:absolute;
 			left: 35%;
-			top: 20%;
+			top: 25%;
 			font-size: 80px;
 			font-family: 'Tangerine', cursive;
+			background-color: rgba(255, 255, 255, 0.4);
+			border-radius: 10px;
 		}
 		.usern {
-			font-family: 'Roboto';
+			font-family: Abel;
 			font-size: 30px;
 			text-color: #6F6866;
 			position: absolute;
@@ -33,10 +35,17 @@
 		.login {
 			height: 40px;
 			width: 150px;
-			font-family: 'Roboto';
+			font-family: 'Abel';
 			font-size: 25px;
 			text-color: #F5F8F6;
 			background-color: #788585;
+		}
+		body {
+			background-image: url(../static/assets/login_bg.jpg);
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size: cover;
 		}
 		
 	</style>
