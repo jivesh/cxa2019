@@ -2,57 +2,60 @@
 <html>
 
 <head>
-	<style>
-	@import url('https://fonts.googleapis.com/css?family=Abel&display=swap');
-	@import url("https://fonts.googleapis.com/css?family=Tangerine&display=swap");
-	</style>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Abel&display=swap');
+        @import url("https://fonts.googleapis.com/css?family=Tangerine&display=swap");
+    </style>
     <meta charset="utf-8">
     <title>Login</title>
     </script>
-	<style type="text/css">
-		.hello {
-			position:absolute;
-			left: 35%;
-			top: 25%;
-			font-size: 80px;
-			font-family: 'Tangerine', cursive;
-			background-color: rgba(255, 255, 255, 0.7);
-			border-radius: 10px;
-		}
-		.usern {
-			font-family: Abel;
-			font-size: 30px;
-			text-color: #6F6866;
-			position: absolute;
-			left: 42%;
-			top: 50%;
-		}
-		.buttn {
-			position: absolute;
-			left: 48%;
-			top: 60%;
-		}
-		.login {
-			height: 40px;
-			width: 150px;
-			font-family: 'Abel';
-			font-size: 25px;
-			text-color: #F5F8F6;
-			background-color: #788585;
-		}
-		body {
-			background-image: url(../static/assets/login_bg.jpg);
-			background-position: center center;
-			background-repeat: no-repeat;
-			background-attachment: fixed;
-			background-size: cover;
-		}
-		
-	</style>
+    <style type="text/css">
+        .hello {
+            position: absolute;
+            left: 35%;
+            top: 25%;
+            font-size: 80px;
+            font-family: 'Tangerine', cursive;
+            background-color: rgba(255, 255, 255, 0.4);
+            border-radius: 10px;
+        }
+        
+        .usern {
+            font-family: Abel;
+            font-size: 30px;
+            color: #6F6866;
+            position: absolute;
+            left: 42%;
+            top: 50%;
+        }
+        
+        .buttn {
+            position: absolute;
+            left: 48%;
+            top: 60%;
+        }
+        
+        .login {
+            height: 40px;
+            width: 150px;
+            font-family: 'Abel';
+            font-size: 25px;
+            color: #F5F8F6;
+            background-color: #788585;
+        }
+        
+        body {
+            background-image: url(../static/assets/login_bg.jpg);
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
 </head>
 
 <body style="background-color:#DEE7E1">
-	<div class="hello"> Bin your garbage sustainably</div>
+    <div class="hello"> Bin your garbage sustainably</div>
     <form action="/main_page" method="POST" enctype="multipart/form-data">
         <div class="usern">
             <label for="user_name">Username: </label>
