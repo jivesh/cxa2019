@@ -41,7 +41,8 @@ def main_page():
     con = open_DB('user.db')
     input_name = request.form["user_name"]
     try:
-        record = con.execute("SELECT Name, Points FROM User WHERE Name = \"" +input_name+"\"")
+        record = con.execute("SELECT Name, Points FROM User WHERE Name = \"" +
+                             input_name + "\"")
         np_dict = record.fetchall()
         for line in np_dict:
             point = line["Points"]
@@ -50,6 +51,9 @@ def main_page():
         con.execute("INSERT INTO User (Name, Points) VALUES(?, ?)",
                     (input_name, point))
         con.commit()
+    handle = open("current_user.txt", "w")
+    handle.write(input_name)
+    handle.close()
     return render_template("main_page.html", point=point)
 
 
@@ -102,7 +106,20 @@ def classify():
 @app.route("/reward", methods=["GET"])
 def reward():
     # TODO: trigger reward system when mistakes were spotted
-    
+    handle = open("current_user.txt", "r")
+    for line in handle:
+        current_user = line.strip()
+    handle.close()
+    con = open_DB("user.db")
+    record = con.execute("SELECT Name, Points FROM User WHERE Name = \"" +
+                         current_user + "\"")
+    np_dict = record.fetchall()
+    for line in np_dict:
+        point = line["Points"]
+    current_point = str(int(point) + 10)
+    con.execute("UPDATE User SET Points = \"" + current_point +
+                "\"WHERE Name =\"" + current_user + "\"")
+    con.commit()
     # TODO: display ending page
     # return render_template("")
     return "Hey"
