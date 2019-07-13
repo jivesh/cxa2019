@@ -45,10 +45,12 @@ def main_page():
 def throw_rubbish():
     return render_template("camera.html")
 
+
 # processing screen
 @app.route("/process", methods=["GET"])
 def process():
     return render_template("loading.html")
+
 
 # triggered after shortly entering the processing screen
 @app.route("/classify", methods=["GET"])
