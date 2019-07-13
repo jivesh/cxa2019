@@ -45,13 +45,12 @@ def main_page():
 def throw_rubbish():
     return render_template("camera.html")
 
-
+# processing screen
 @app.route("/process", methods=["GET"])
 def process():
     return render_template("loading.html")
 
-# TODO: add processing anima for engagement
-# triggered after clicking the snap button in the camera page
+# triggered after shortly entering the processing screen
 @app.route("/classify", methods=["GET"])
 def classify():
     # to make sure the image saved
