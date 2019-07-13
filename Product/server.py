@@ -15,27 +15,13 @@ def open_DB(db):
 app = Flask("__name__")
 
 
+# TODO: improve on the UI design
 @app.route("/")
 def root():
     return render_template("log_in.html")
 
 
-# # TODO
-# @app.route("/addUser", methods=["POST"])
-# def add_user():
-#     # the function is to create a new user
-#     con = open_DB('user.db')
-#     try:
-#         user_name = request.form['name']
-#         con.execute("INSERT INTO User (Name, Points) VALUES(?, ?)", (user_name, 0))
-#         con.commit()
-#     except:
-#         print("Database error")
-#     con.close()
-#     # TODO: supposed to render a certain page
-#     return render_template("products.html")
-
-
+# TODO: improve on the UI design
 @app.route("/main_page", methods=["POST"])
 def main_page():
     con = open_DB('user.db')
@@ -62,6 +48,7 @@ def throw_rubbish():
     return render_template("camera.html")
 
 
+# TODO: add processing anima for engagement
 # triggered after clicking the snap button in the camera page
 @app.route("/classify", methods=["GET"])
 def classify():
@@ -94,10 +81,6 @@ def classify():
         if i != 5:
             handle.write(", ")
     handle.close()
-    # remove the image
-    os.remove(
-        "/Users/ue/Downloads/CXA2019/cxa2019/Product/static/images/downloaded_images/picture/trash.png"
-    )
     # play the anima for each type of trash
     final_url = result_str + ".html"
     return render_template(final_url)
@@ -105,7 +88,11 @@ def classify():
 
 @app.route("/reward", methods=["GET"])
 def reward():
-    # TODO: trigger reward system when mistakes were spotted
+    # remove the image
+    os.remove(
+        "/Users/ue/Downloads/CXA2019/cxa2019/Product/static/images/downloaded_images/picture/trash.png"
+    )
+    # update the points of the user in the database
     handle = open("current_user.txt", "r")
     for line in handle:
         current_user = line.strip()
@@ -120,9 +107,8 @@ def reward():
     con.execute("UPDATE User SET Points = \"" + current_point +
                 "\"WHERE Name =\"" + current_user + "\"")
     con.commit()
-    # TODO: display ending page
-    # return render_template("")
-    return "Hey"
+    # display ending page which will lead to log_in page while showing the points
+    return render_template("end.html", points=current_point)
 
 
 if __name__ == "__main__":
