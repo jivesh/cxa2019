@@ -91,6 +91,7 @@ def classify():
 
 @app.route("/reward", methods=["GET"])
 def reward():
+    # time.sleep(5)
     # remove the image
     os.remove(
         "/Users/ue/Downloads/CXA2019/cxa2019/Product/static/images/downloaded_images/picture/trash.png"

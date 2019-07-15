@@ -14,23 +14,14 @@ json_file.close()
 model = tf.keras.models.model_from_json(loaded_model_json)
 model.load_weights('model.h5')
 
-model.compile(loss='categorical_crossentropy',
-              optimizer='adam',
-              metrics=['acc'])
+model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['acc'])
 model.summary()
 
 test_datagen = ImageDataGenerator(rescale=1. / 255)
 
 batch_size = 16
 
-labels = {
-    0: 'cardboard',
-    1: 'glass',
-    2: 'metal',
-    3: 'paper',
-    4: 'plastic',
-    5: 'trash'
-}
+labels = {0: 'glass', 1: 'metal', 2: 'paper', 3: 'plastic', 4: 'trash'}
 
 validation_generator = test_datagen.flow_from_directory(
     'static/images/downloaded_images', target_size=(224, 224))
