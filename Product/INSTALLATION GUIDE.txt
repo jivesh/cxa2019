@@ -1,0 +1,29 @@
+To make it function on your computer you'll need to:
+
+1. Install python modules that do not come with vanilla installation of Python3
+   Modules needed:
+	1. flask
+	2. tensorflow
+	3. pillow
+   How to install python modules on Windows 10:
+   	1. open command prompt
+	2. type "pip install modulename" , where modulename is to be replaced by the 3 modules listed above
+	   For example: "pip install flask"
+	3. press Enter
+
+2. Go to DOWNLOAD DIRECTORY and paste your browser's download directory there.
+   How to check Chrome's download directory:
+	1. Go to Chorme's settings
+	2. Go to Advanced settings
+	3. Go to Downloads, directory is under "Location", which looks something like "C:\Users\Username\Downloads"
+	4. Copy the directory and paste it in DOWNLOAD DIRECTORY
+
+You are now good to go!
+
+To run the program:
+1. Run server.py by double clicking it
+2. go to http://127.0.0.1:5000/ on your browser
+
+
+	
+	

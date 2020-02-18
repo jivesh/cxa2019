@@ -1,0 +1,15 @@
+Changes since CXA 2019:
+
+- fixed the bug where new account input will result in an error (fixed by handling condition for new user)
+
+- fixed the bug where classification animation will always display the first picture taken when starting the server (fixed by disabling web caching)
+
+- optimized the camera webpage template to display "Take Photo" button without the need to scroll down
+
+- optimized the neural network to utilize Tensorflow 2.0's Keras submodule instead of Keras module
+
+- optimized the server to make its directory referencing more dynamic
+
+- optimized the server to remove the need to change browser download directory to this specific folder, now the server will reference image from directory stated in DOWNLOAD DIRECTORY.txt instead
+
+- optimized the server to clean up all generated data after each use

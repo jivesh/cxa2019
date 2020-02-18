@@ -1,0 +1,35 @@
+<video id="video" width="640" height="480" autoplay></video>
+<br/>
+<button id="snap">Take Photo</button>
+<canvas id="canvas" width="640" height="480"></canvas>
+
+<script type="text/javascript">
+	var video = document.getElementById('video');
+
+	if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+		navigator.mediaDevices.getUserMedia({ video: true, audio: true}).then(function(stream){
+			// video.src = window.URL.createObjectURL(stream);
+			video.srcObject = stream;
+		}).catch(function(err) {
+			console.log(err.name, err.message);
+		});
+	}
+
+	var canvas = document.getElementById('canvas');
+	var context = canvas.getContext('2d');
+	var link = document.createElement('a');
+		// link.innerHTML = 'download image';
+
+	// take a snap of the trash
+	document.getElementById('snap').addEventListener('click', function(){
+		context.drawImage(video, 0, 0, 640, 480);
+		// trigger the downloasd
+		link.click();
+	});	
+	// download the image
+	link.addEventListener('click', function() {
+		link.href = canvas.toDataURL("image/png");
+		link.download = "trash";
+	});
+	document.body.appendChild(link);
+</script>

@@ -1,17 +1,15 @@
-from keras.models import model_from_json
+from tensorflow.keras.models import model_from_json
 import numpy as np
 # import matplotlib.pyplot as plt
-from keras.preprocessing.image import ImageDataGenerator, load_img, img_to_array, array_to_img
-from keras.layers import Conv2D, Flatten, MaxPooling2D, Dense
-from keras.models import Sequential
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 import glob, os, random
-import tensorflow as tf
+
 
 json_file = open('model.json', 'r')
 loaded_model_json = json_file.read()
 json_file.close()
-model = tf.keras.models.model_from_json(loaded_model_json)
+model = model_from_json(loaded_model_json)
 model.load_weights('model.h5')
 
 model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['acc'])

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<video id="video" width=1640px height=720px autoplay></video>
+<video id="video" height="650" width=1640px height=720px autoplay muted></video>
 <br/>
 <form action="/process">
     <button id="snap" style="font-family:Courier New">Take Photo</button>
@@ -24,8 +24,6 @@
         margin: 0em auto; */
         position: absolute;
         left: 45%;
-        margin-left: -50px;
-        margin-top: 20px;
         width: 300px;
         height: 90px;
         font-size: 2em;
@@ -38,7 +36,7 @@
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
         navigator.mediaDevices.getUserMedia({
             video: true,
-            audio: true
+            audio: false
         }).then(function(stream) {
             // video.src = window.URL.createObjectURL(stream);
             video.srcObject = stream;
